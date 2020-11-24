@@ -1,3 +1,13 @@
+
+<% content_for :head_block do %>
+	<%= stylesheet_link_tag    'player', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= stylesheet_link_tag    'video-js.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag 'video.js' %>
+	<%= javascript_include_tag 'player.js' %>
+<% end %>
+
+<% content_for :body_block do %>
+
 <div class="wrapper">
 	<section class="mn-sec">
 		<div class="container">
@@ -36,3 +46,4 @@
 	</section><!--mn-sec end-->
 
 </div><!--wrapper end-->
+<% end %>
