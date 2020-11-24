@@ -1,0 +1,135 @@
+// Place all the styles related to the player controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.mn-sec {
+	width:100%;
+	padding-top:30px;
+	padding-bottom:34px;
+}
+.vid-1{
+	width:100%;
+}
+.vid-pr{
+	width:100%;
+	position:relative;
+	overflow: hidden;
+}
+.vid-pr img{
+	width:100%;
+}
+.play-video {
+	display: inline-block;
+	width: 65px;
+	height: 65px;
+	line-height: 65px;
+	background-color: rgba(52,52,52,0.85);
+	text-align: center;
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	font-size: 22px;
+}
+.play-video:hover {
+	color: #fff;
+}
+.vid-info {
+	width:100%;
+}
+.vid-info h3{
+	color: #C3C3D2;
+	font-size:22px;
+	line-height: 26px;
+	font-weight:400;
+	margin-top:12px;
+}
+.single_video .vid-info h3 {
+	margin-top: 17px;
+	font-size: 22px;
+	color: #1c1b1b;
+} 
+.info-pr{
+	margin-top:18px;
+}
+.info-pr {
+	border-bottom: 2px solid #e2ebef;
+	padding-bottom: 13px;
+}
+.info-pr > span{
+	float:left;
+	color: #6e6f70;
+	font-size: 16px;
+	line-height: 19px;
+}
+.pr_links{
+	float:right;
+	position:relative;
+	width:70%;
+	text-align:right;
+	margin-bottom:10px;
+
+}
+.pr_links:before{
+	content:'';
+	width:156px;
+	height:2px;
+	position:absolute;
+	bottom:-25px;
+	right:12px;
+}
+.pr_links li button i {
+	margin-right: 12px;
+}
+.pr_links li button i.icon-thumbs_down {
+	position: relative;
+	top: 2px;
+} 
+.pr_links li span{
+	margin:0;
+	display:inline-block;
+	position:relative;
+	font-size: 16px;
+	color: #6e6f70;
+}
+.pr_links li {
+	display: inline-block;
+	margin-right: 21px;
+}
+.pr_links li:last-child {
+	margin-right: 0;
+}
+.pr_links span {
+	font-weight:400;
+	font-size: 16px;
+	line-height: 19px;
+	color: #777781;
+}
+.pr_links li button {
+	background-color: inherit;
+	border:0;
+}
+.pr_links li button:hover {
+	color: inherit;
+}
+
+.vid-pr {
+	height: 585px;
+	width: 100%;
+}
+.vid-pr video {
+	width: 100%;
+}
+
+
+
+
+.video-js {
+	width: 100%;
+	height: 100%;
+}
