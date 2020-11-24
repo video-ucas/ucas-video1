@@ -6,7 +6,8 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-
+ruby 2.5.8
+rails 5.1.1
 * System dependencies
 
 * Configuration
