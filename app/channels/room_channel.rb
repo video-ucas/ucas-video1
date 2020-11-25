@@ -10,6 +10,6 @@ class RoomChannel < ApplicationCable::Channel
 
   def receive(data)
     p data
-    ActionCable.server.broadcast("room_#{params[:room_id]}", data)
+    ActionCable.server.broadcast("room#{params[:room_id]}", data)
   end
 end
