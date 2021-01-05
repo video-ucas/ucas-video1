@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'player/:room_id/show',to: 'player#show'
+  get 'player/show',to: 'player#show'
   get 'rooms/new',to:'rooms#new'
   get 'rooms/search',to:'rooms#search'
   get '/generate_device_id', :to=>"rooms#more"
