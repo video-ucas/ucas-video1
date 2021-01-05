@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  owner: MyString
+  max_users_num: 1
+  cur_users_num: 1
+  public: false
+
+two:
+  name: MyString
+  owner: MyString
+  max_users_num: 1
+  cur_users_num: 1
+  public: false
