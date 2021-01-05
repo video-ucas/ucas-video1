@@ -1,13 +1,11 @@
 
 <% content_for :head_block do %>
-	<%= stylesheet_link_tag    'player', media: 'all', 'data-turbolinks-track': 'reload' %>
 	<%= stylesheet_link_tag    'video-js.css', media: 'all', 'data-turbolinks-track': 'reload' %>
-	<%= javascript_include_tag 'video.js' %>
-	<%= javascript_include_tag 'player.js' %>
+	<%= stylesheet_link_tag    'player', media: 'all', 'data-turbolinks-track': 'reload' %>
 <% end %>
 
 <% content_for :body_block do %>
-
+<input type="hidden" id="room_id" value="<%= @room_id %>"/>
 <div class="wrapper">
 	<section class="mn-sec">
 		<div class="container">
@@ -18,13 +16,8 @@
 							<div class="vid-pr">
 								<video
 								    id="my-video"
-								    class="video-js vjs-big-play-centered"
-								    controls
-								    preload="auto"
-								    width="640"
-								    height="264"
-								
-								    data-setup="{}"
+									class="video-js vjs-big-play-centered"
+									
 								  >
                                   <source src="http://127.0.0.1:5000/static/qbl.mp4" type="video/mp4" />
 		
@@ -44,6 +37,11 @@
 			</div>
 		</div>
 	</section><!--mn-sec end-->
-
+	
 </div><!--wrapper end-->
+<% end %>
+
+<% content_for :tail_block do %>
+	<%= javascript_include_tag 'video.js' %>
+	<%= javascript_include_tag 'player.js' %>
 <% end %>

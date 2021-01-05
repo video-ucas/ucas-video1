@@ -43,7 +43,7 @@ Rails.application.configure do
   config.assets.debug = false
   config.assets.check_precompiled_asset = false
   config.assets.unknown_asset_fallback = true
-
+  config.action_cable.disable_request_forgery_protection = true
   # Suppress logger output for asset requests.
   config.assets.quiet = true
   config.assets.digest = false
