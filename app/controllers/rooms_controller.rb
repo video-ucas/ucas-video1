@@ -44,7 +44,7 @@ class RoomsController < ApplicationController
     room.name=name
     room.user_id=0
     room.max_users_num=max
-    room.cur_users_num=1
+    room.cur_users_num=0
     room.token = token
     room.video_id=video_id
     room.save
