@@ -19,13 +19,13 @@
 								    id="my-video"
 									class="video-js vjs-big-play-centered"									
 								  >
-                                  <source src="http://127.0.0.1:5000/static/qbl.mp4" type="video/mp4" />		
+                                  <source src=<%= @url %> type="video/mp4" />		
 								</video>
 							</div><!--vid-pr end-->
 							<div class="vid-info">
 								<h3>千本樱： 古筝翻奏 ---  墨韵随步摇</h3>
 								<div class="info-pr">
-									<span>60,723,169 views</span>
+									<span>60,723,169 views  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;邀请码： <%= @room.id.to_s+'/'+@room.token %></span>
 									<div class="clearfix"></div>
 								</div><!--info-pr end-->
 							</div><!--vid-info end-->
