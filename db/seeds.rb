@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Video.create(name:'火影忍者',video_url:'/static/火影忍者.mp4',picture_url:'火影忍者',count:0)
