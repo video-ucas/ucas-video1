@@ -38,7 +38,7 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: bold;
 }
-.bootstrap-frm input[type="text"], .bootstrap-frm input[type="email"], .bootstrap-frm textarea, .bootstrap-frm select{
+.bootstrap-frm input[type="text"], .bootstrap-frm input[type="password"], .bootstrap-frm textarea, .bootstrap-frm select{
     border: 1px solid # CCC;
     color: # 888;
     height: 35px;
