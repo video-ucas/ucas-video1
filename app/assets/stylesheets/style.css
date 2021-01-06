@@ -1,45 +1,8 @@
 ﻿
 
-
-
-/*===================== TABLE OF CONTENT =======================
-
-
-1.  1 HOMEPAGES
-2.  RESET CSS
-3.  CROSS BROWSER COMPATABILITY
-4.  DROPDOWN MENU
-5.  RESPONSIVE HEADER
-6.  SLICK SLIDER (BANNER)
-7.  SIDE MENU
-8.  BROWSE CATEGORY PAGE
-9.  BROWSE CHANNELS PAGE
-10. HISTORY PAGE
-11. LOGIN / SIGN UP PAGES
-12. SINGLE CHANNEL HOME
-13. SINGLE VIDEO FULL WIDTH
-14. UPDATES FROM SUBSCRIPTIONS PAGE
-15. UPLOAD VIDEO
-16. EDIT VIDEO
-17. USER ACCOUNT PAGE
-最新最全最好的Bootstrap模板：http://www.bootstrapmb.com
-=============================================================*/
-
-
-
-
-
-
-
-/* ================================================================================== 
-									Fonts
-===================================================================================== */
-
 @import url('https://fonts.googleapis.com/css?family=DM+Sans:400,400i,500,500i,700,700i&display=swap');
 
-/* ================================================================================== 
-										Reset Css
-===================================================================================== */
+
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -425,20 +388,6 @@ header .container {
 	position: relative;
 	padding-right: 29px;
 	cursor: pointer;
-}
-.user-log:before {
-	content: '\e832';
-	font-family: 'fontello';
-	color: #2c2b2b;
-	font-size: 8px;
-	position: absolute;
-	top: 50%;
-	right: 0;
-	-webkit-transform: translateY(-50%);
-	-moz-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	-o-transform: translateY(-50%);
-	transform: translateY(-50%);
 }
 
 
@@ -2655,32 +2604,7 @@ strong {
   display: inline-block;
   cursor: pointer;
 }
-.checkmark:before {
-	content: '\e82d';
-	font-family: 'fontello';
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	color: #fff;
-	font-size: 7px;
-	-webkit-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	-o-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	opacity: 0;
-	visibility: hidden;
-}
-input[type="checkbox"]:checked ~ .checkmark {
-	background-color: #000000;
-}
-input[type="radio"]:checked ~ .checkmark {
-	background-color: #000000;
-}
-input[type="checkbox"]:checked ~ .checkmark:before {
-	opacity: 1;
-	visibility: visible;
-}
+
 .chekbox-lg label span {
 	display: inline-block;
 	margin: 0;
@@ -2833,7 +2757,6 @@ input[type="checkbox"]:checked ~ .checkmark:before {
 }
 .contacts{
 	width:100%;
-	padding-bottom
 }
 .video-details{
 	width:100%;

@@ -6,8 +6,7 @@
   <%= stylesheet_link_tag    'thumbs-embedded.css', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag    'style.css', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag    'responsive.css', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_link_tag    'newRoom.css', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'rooms.js'%>
+  <%= stylesheet_link_tag    'color.css', media: 'all', 'data-turbolinks-track': 'reload' %>
 <% end %>
 <title>index</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,41 +15,46 @@
 <% content_for :body_block do %>
 
   <div class="wrapper hp_1">
+
+    <!--topbar-->
     <%= render '/layouts/shared/topbar' %>
+
+    <!--中间背景-->
+    <section class="banner-section">
+      <div class="container">
+        <div class="banner-text">
+          <h2>Watch and share with friends</h2>
+        </div><!--banner-text end-->
+      </div>
+    </section><!--banner-section end-->
+
+    <!--展示视频-->
     <section class="vds-main">
       <div class="vidz-row">
         <div class="container">
           <div class="vidz_sec">
             <div class="vidz_list">
-              <form action="/rooms/" method="post" class="bootstrap-frm">
-                <h1>创建房间
-                  <span>与他/她分享快乐.</span>
-                </h1>
-                <label>
-                  <span>房 间 名 :</span>
-                  <input id="name" type="text" name="name"  />
-                </label>
-                <label>
-                  <span>房 间 大 小 :</span>
-                  <select id="max_users_num" name="max_users_num" style="height: 35px">
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
-                </label>
-                <input id="video_id" name="video_id" hidden value=<%=params[:video_id] %>>
-                <label>
-                  <span>&nbsp;</span>
-                  <input type="submit" class="button" value="创建" />
-                </label>
-              </form>
+              <div class="row">
+                <% @videos.each do |video| %>
+                  <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth" style="margin-bottom: 5vh">
+                    <div class="vid_thumbainl">
+                      <%= link_to newRoom_url(video_id:video.id) do%>
+                        <%= image_tag(video.picture_url+".jpg") %>
+                        <span class="watch_later"><i class="icon-watch_later_fill"></i></span>
+                      <% end %>
+                    </div><!--vid_thumbnail end-->
+                    <div class="video_info">
+                      <h3><%=link_to newRoom_url(video_id:video.id) do%><%= video.name %><% end %></h3>
+                      <span style="color: green">观看次数:<%= video.count %></span>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
             </div><!--vidz_list end-->
           </div><!--vidz_videos end-->
         </div>
       </div><!--vidz-row end-->
     </section>
-
   </div><!--wrapper end-->
 <% end %>
 

@@ -33,12 +33,12 @@ var clicked=false;
 App.room = App.cable.subscriptions.create({channel: "RoomChannel",room_id: $("#room_id").val()}, {
   connected: function() {
     // Called when the subscription is ready for use on the server
-    console.log("connect to room"+$("#room_id").val())
+    console.log("connect to room"+$("#room_id").val());
   },
 
   disconnected: function() {
     // Called when the subscription has been terminated by the server
-    console.log("leave room"+$("#room_id").val())
+    console.log("leave room"+$("#room_id").val());
   },
 
   received: function(data) {
@@ -49,12 +49,21 @@ App.room = App.cable.subscriptions.create({channel: "RoomChannel",room_id: $("#r
     if(data['body']=='play'){
       player.currentTime(parseFloat(data['time']));
       player.play();
+      $("#messages").append("<li>"+data['user']+"  play"+"</li>");
+      $('#messages').animate({scrollTop: $('#messages').prop("scrollHeight")}, 100);
     }else if(data['body']=='pause'){
       player.currentTime(parseFloat(data['time']));
       player.pause();
+      $("#messages").append("<li>"+data['user']+" pause"+"</li>");
+      $('#messages').animate({scrollTop: $('#messages').prop("scrollHeight")}, 100);
     }else if(data['body']=='sync'){
       player.currentTime(parseFloat(data['time']));
+      $("#messages").append("<li>"+data['user']+" sync"+"</li>");
+      $('#messages').animate({scrollTop: $('#messages').prop("scrollHeight")}, 100);
       //player.pause();
+    }else if(data['body']=='enter'){
+      $("#messages").append("<li>"+data['user']+" enter"+"</li>");
+      $('#messages').animate({scrollTop: $('#messages').prop("scrollHeight")}, 100);
     }
   }
 });
