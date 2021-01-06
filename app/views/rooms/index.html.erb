@@ -55,11 +55,11 @@
                       <div class="video_info">
                         <%if !isFull(room) %>
                           <h3><%=link_to open_url(room_id:room.id) do%><%= room.name %><%end %></h3>
-                          <h4><%= room.owner %></h4>
+                          <h4><%= room.user_id %></h4>
                           <span style="color: green">房间大小:<%= room.max_users_num %> .<small class="posted_dt" style="color: green" >当前人数:<%= room.cur_users_num %></small></span>
                         <%else %>
                           <h3><%= room.name %></h3>
-                          <h4><%= room.owner %></h4>
+                          <h4><%= room.user_id %></h4>
                           <span style="color: red">房间大小:<%= room.max_users_num %> .<small class="posted_dt" style="color: red">当前人数:<%= room.cur_users_num %></small></span>
                         <%end %>
                       </div>
