@@ -7,7 +7,6 @@
   <%= stylesheet_link_tag    'style.css', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag    'responsive.css', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag    'color.css', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'rooms.js'%>
 <% end %>
 <title>index</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +16,7 @@
 
   <div class="wrapper hp_1">
 
+    <!--topbar-->
     <header>
       <div class="top_bar">
         <div class="container">
@@ -24,10 +24,10 @@
             <div class="search_form" style="margin-left: 400px">
               <%= form_tag(rooms_search_path,:method => "get") do %>
                 <div class="input-group">
-                    <%=search_field_tag :id,params[:id],placeholder:"Input Room ID" %>
-                    <div>
-                        <%=button_tag "Enter",:name=>nil %>
-                    </div>
+                  <%=search_field_tag :id,params[:id],placeholder:"Input Room ID" %>
+                  <div>
+                    <%=button_tag "Enter",:name=>nil %>
+                  </div>
                 </div>
               <%end %>
             </div>
@@ -42,56 +42,37 @@
       </div>
     </header>
 
+    <!--中间背景-->
     <section class="banner-section">
       <div class="container">
         <div class="banner-text">
           <h2>Watch share and upload with friends</h2>
-<!--          <a href="#" title="">创建我的房间</a>-->
         </div><!--banner-text end-->
-        <!--        <h3 class="headline"><a href="#" title="">newfox media</a></h3>-->
       </div>
     </section><!--banner-section end-->
 
+    <!--展示视频-->
     <section class="vds-main">
       <div class="vidz-row">
         <div class="container">
           <div class="vidz_sec">
-            <h3>房间</h3>
-            <a id ="more"title="" class="view-btn">更多</a>
+            <h3>视频</h3>
             <div class="vidz_list">
               <div class="row">
-
-                <% @rooms.each do |room| %>
-                  <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                    <div class="videoo">
-                      <div class="vid_thumbainl">
-                        <%if !isFull(room) %>
-                          <%= link_to open_url(room_id:room.id) do%>
-                            <%= image_tag(room.name+".jpg") %>
-                            <!--                              <span class="vid-time">10:21</span>-->
-                            <span class="watch_later"><i class="icon-watch_later_fill"></i></span>
-                          <%end %>
-                        <%else %>
-                          <%= image_tag(room.name+".jpg") %>
-                          <!--                              <span class="vid-time">10:21</span>-->
-                          <span class="watch_later"><i class="icon-watch_later_fill"></i></span>
-                        <%end %>
-                      </div><!--vid_thumbnail end-->
-                      <div class="video_info">
-                        <%if !isFull(room) %>
-                          <h3><%=link_to open_url(room_id:room.id) do%><%= room.name %><%end %></h3>
-                          <h4><%= room.owner %></h4>
-                          <span style="color: green">房间大小:<%= room.max_users_num %> .<small class="posted_dt" style="color: green" >当前人数:<%= room.cur_users_num %></small></span>
-                        <%else %>
-                          <h3><%= room.name %></h3>
-                          <h4><%= room.owner %></h4>
-                          <span style="color: red">房间大小:<%= room.max_users_num %> .<small class="posted_dt" style="color: red">当前人数:<%= room.cur_users_num %></small></span>
-                        <%end %>
-                      </div>
-                    </div><!--videoo end-->
+                <% @videos.each do |video| %>
+                  <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth" style="margin-bottom: 5vh">
+                    <div class="vid_thumbainl">
+                      <%= link_to newRoom_url(video_id:video.id) do%>
+                        <%= image_tag(video.picture_url+".jpg") %>
+                        <span class="watch_later"><i class="icon-watch_later_fill"></i></span>
+                      <% end %>
+                    </div><!--vid_thumbnail end-->
+                    <div class="video_info">
+                      <h3><%=link_to newRoom_url(video_id:video.id) do%><%= video.name %><% end %></h3>
+                      <span style="color: green">观看次数:<%= video.count %></span>
+                    </div>
                   </div>
                 <% end %>
-
               </div>
             </div><!--vidz_list end-->
           </div><!--vidz_videos end-->

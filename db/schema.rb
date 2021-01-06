@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201125092835) do
+ActiveRecord::Schema.define(version: 20210106074208) do
 
   create_table "rooms", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 20201125092835) do
     t.integer "max_users_num"
     t.integer "cur_users_num"
     t.boolean "public"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.string "name"
+    t.string "video_url"
+    t.string "picture_url"
+    t.integer "count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
