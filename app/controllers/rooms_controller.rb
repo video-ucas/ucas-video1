@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  require 'securerandom'
   before_action :set_room, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token, :only => [:create]
   # GET /rooms
@@ -32,14 +33,16 @@ class RoomsController < ApplicationController
   def create
     name=params["name"]
     max =params["max_users_num"]
+    token=SecureRandom.uuid
     room = Room.new
     room.name=name
     room.owner=name
     room.max_users_num=max
     room.cur_users_num=0
     room.public=true
-    room.savesd
+    room.save
     id =Room.last.id
+    id = token +id.to_s
     redirect_to player_show_path(:id => id)
   end
 
