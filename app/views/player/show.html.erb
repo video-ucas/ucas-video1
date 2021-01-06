@@ -5,6 +5,7 @@
 <% end %>
 
 <% content_for :body_block do %>
+<%= render '/layouts/shared/topbar' %>
 <input type="hidden" id="room_id" value="<%= @room_id %>"/>
 <div class="wrapper">
 	<section class="mn-sec">
@@ -16,11 +17,9 @@
 							<div class="vid-pr">
 								<video
 								    id="my-video"
-									class="video-js vjs-big-play-centered"
-									
+									class="video-js vjs-big-play-centered"									
 								  >
-                                  <source src="http://127.0.0.1:5000/static/qbl.mp4" type="video/mp4" />
-		
+                                  <source src="http://127.0.0.1:5000/static/qbl.mp4" type="video/mp4" />		
 								</video>
 							</div><!--vid-pr end-->
 							<div class="vid-info">
@@ -33,7 +32,14 @@
 						</div><!--vid-1 end-->
 					</div><!--mn-vid-sc end--->
 				</div><!---col-lg-9 end-->
-
+				<div class='col-lg-1'>
+				</div>
+				<div class='col-lg-2'>
+					<br>
+					<h1 style='font-size:30px'>Notice</h1>
+					<ul id="messages" class='message-ul'>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</section><!--mn-sec end-->

@@ -16,37 +16,12 @@
 <% content_for :body_block do %>
 
   <div class="wrapper hp_1">
-
-    <header>
-      <div class="top_bar">
-        <div class="container">
-          <div class="top_header_content">
-            <div class="search_form" style="margin-left: 400px">
-              <%= form_tag(rooms_search_path,:method => "get") do %>
-                <div class="input-group">
-                    <%=search_field_tag :id,params[:id],placeholder:"Input Room ID" %>
-                    <div>
-                        <%=button_tag "Enter",:name=>nil %>
-                    </div>
-                </div>
-              <%end %>
-            </div>
-            <ul class="controls-lv">
-              <li>
-                <a href="Upload_Video.html" title="" class="btn-default">退出</a>
-              </li>
-            </ul>
-            <div class="clearfix"></div>
-          </div>
-        </div>
-      </div>
-    </header>
-
+    <%= render '/layouts/shared/topbar' %>
     <section class="banner-section">
       <div class="container">
         <div class="banner-text">
           <h2>Watch share and upload with friends</h2>
-<!--          <a href="#" title="">创建我的房间</a>-->
+          <!--          <a href="#" title="">创建我的房间</a>-->
         </div><!--banner-text end-->
         <!--        <h3 class="headline"><a href="#" title="">newfox media</a></h3>-->
       </div>
@@ -57,7 +32,7 @@
         <div class="container">
           <div class="vidz_sec">
             <h3>房间</h3>
-            <a id ="more"title="" class="view-btn">更多</a>
+            <a id ="more" title="" class="view-btn">更多</a>
             <div class="vidz_list">
               <div class="row">
 
@@ -80,11 +55,11 @@
                       <div class="video_info">
                         <%if !isFull(room) %>
                           <h3><%=link_to open_url(room_id:room.id) do%><%= room.name %><%end %></h3>
-                          <h4><%= room.owner %></h4>
+                          <h4><%= room.user_id %></h4>
                           <span style="color: green">房间大小:<%= room.max_users_num %> .<small class="posted_dt" style="color: green" >当前人数:<%= room.cur_users_num %></small></span>
                         <%else %>
                           <h3><%= room.name %></h3>
-                          <h4><%= room.owner %></h4>
+                          <h4><%= room.user_id %></h4>
                           <span style="color: red">房间大小:<%= room.max_users_num %> .<small class="posted_dt" style="color: red">当前人数:<%= room.cur_users_num %></small></span>
                         <%end %>
                       </div>
@@ -98,6 +73,7 @@
         </div>
       </div><!--vidz-row end-->
     </section>
+
   </div><!--wrapper end-->
 <% end %>
 

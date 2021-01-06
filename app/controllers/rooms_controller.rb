@@ -1,10 +1,11 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: [:show, :edit, :update, :destroy,:search]
-
+  require 'securerandom'
+  before_action :set_room, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, :only => [:create]
   # GET /rooms
   # GET /rooms.json
   def index
-    @rooms = Room.where(public:true).limit(8)
+    @rooms = Room.all
   end
 
   # GET /rooms/1
@@ -14,6 +15,7 @@ class RoomsController < ApplicationController
 
   # GET /rooms/new
   def new
+    @room = Room.new
   end
 
   # GET /rooms/1/edit
@@ -29,26 +31,36 @@ class RoomsController < ApplicationController
   # POST /rooms.json
 
   def create
-    @room = Room.new(room_params)
-    respond_to do |format|
-      if @room.save
-        format.html { redirect_to @room, notice: 'Room was successfully created.' }
-        format.json { render :show, status: :created, location: @room }
-      else
-        format.html { render :new }
-        format.json { render json: @room.errors, status: :unprocessable_entity }
-      end
-    end
+    name=params["name"]
+    max =params["max_users_num"]
+    video_id = params["video_id"]
+    token=SecureRandom.uuid
+    room = Room.new
+    room.name=name
+    room.user_id=0
+    room.max_users_num=max
+    room.cur_users_num=0
+    room.token = token
+    room.video_id=video_id
+    room.save
+    id =Room.last.id
+    redirect_to player_show_path(:room_id => id,:token => token)
   end
 
   def search
-    # if params[:id].blank?
-    #   puts params[:id]
-    #   redirect_to rooms_path
-    # else
-    #   puts "nihao"
-    # end
+    invitation = params[:id]
+    data = invitation.split('/')
+    id = data[0]
+    token = data[1]
+    @room = Room.find_by_id(id)
+    if @room!=nil and@room.token==token and @room.cur_users_num<@room.max_users_num
+      redirect_to player_show_path(:room_id => id,:token => token)
+    else
+      flash[:danger]='Invalid Invitation Code'
+      redirect_to rooms_path
+    end
   end
+
   # PATCH/PUT /rooms/1
   # PATCH/PUT /rooms/1.json
   def update
