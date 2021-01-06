@@ -25,4 +25,13 @@ ActiveRecord::Schema.define(version: 20210106071655) do
     t.index ["video_id"], name: "index_rooms_on_video_id"
   end
 
+  create_table "videos", force: :cascade do |t|
+    t.string "name"
+    t.string "video_url"
+    t.string "picture_url"
+    t.integer "count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end

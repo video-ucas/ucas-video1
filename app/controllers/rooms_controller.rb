@@ -15,7 +15,12 @@ class RoomsController < ApplicationController
 
   # GET /rooms/new
   def new
-    @room = Room.new
+    video_id = params["video_id"]
+    if video_id==nil
+      redirect_to rooms_path
+    else
+      @room = Room.new
+    end
   end
 
   # GET /rooms/1/edit
@@ -39,7 +44,7 @@ class RoomsController < ApplicationController
     room.name=name
     room.user_id=0
     room.max_users_num=max
-    room.cur_users_num=0
+    room.cur_users_num=1
     room.token = token
     room.video_id=video_id
     room.save

@@ -1,0 +1,85 @@
+<% content_for :head_block do %>
+  <%= stylesheet_link_tag    'animate.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'flatpickr.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'fontello.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'fontello-codes.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'thumbs-embedded.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'style.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'responsive.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'color.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+<title>index</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<% content_for :body_block do %>
+
+  <div class="wrapper hp_1">
+
+    <!--topbar-->
+    <header>
+      <div class="top_bar">
+        <div class="container">
+          <div class="top_header_content">
+            <div class="search_form" style="margin-left: 400px">
+              <%= form_tag(rooms_search_path,:method => "get") do %>
+                <div class="input-group">
+                  <%=search_field_tag :id,params[:id],placeholder:"Input Room ID" %>
+                  <div>
+                    <%=button_tag "Enter",:name=>nil %>
+                  </div>
+                </div>
+              <%end %>
+            </div>
+            <ul class="controls-lv">
+              <li>
+                <a href="Upload_Video.html" title="" class="btn-default">退出</a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!--中间背景-->
+    <section class="banner-section">
+      <div class="container">
+        <div class="banner-text">
+          <h2>Watch share and upload with friends</h2>
+        </div><!--banner-text end-->
+      </div>
+    </section><!--banner-section end-->
+
+    <!--展示视频-->
+    <section class="vds-main">
+      <div class="vidz-row">
+        <div class="container">
+          <div class="vidz_sec">
+            <h3>视频</h3>
+            <div class="vidz_list">
+              <div class="row">
+                <% @videos.each do |video| %>
+                  <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth" style="margin-bottom: 5vh">
+                    <div class="vid_thumbainl">
+                      <%= link_to newRoom_url(video_id:video.id) do%>
+                        <%= image_tag(video.picture_url+".jpg") %>
+                        <span class="watch_later"><i class="icon-watch_later_fill"></i></span>
+                      <% end %>
+                    </div><!--vid_thumbnail end-->
+                    <div class="video_info">
+                      <h3><%=link_to newRoom_url(video_id:video.id) do%><%= video.name %><% end %></h3>
+                      <span style="color: green">观看次数:<%= video.count %></span>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div><!--vidz_list end-->
+          </div><!--vidz_videos end-->
+        </div>
+      </div><!--vidz-row end-->
+    </section>
+  </div><!--wrapper end-->
+<% end %>
+
+
