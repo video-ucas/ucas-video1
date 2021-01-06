@@ -3,6 +3,9 @@ class RoomChannel < ApplicationCable::Channel
   def subscribed
     stream_from "room#{params[:room_id]}"
     ActionCable.server.broadcast("room#{params[:room_id]}", {'body':'enter','user':self.current_user})
+    room=Room.find_by(id: params[:room_id])
+    room.cur_users_num-=1
+    room.save
   end
 
   def unsubscribed
