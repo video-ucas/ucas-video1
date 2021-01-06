@@ -20,7 +20,7 @@ class RoomsController < ApplicationController
       redirect_to rooms_path
     else
       @room = Room.new
-     end
+    end
   end
 
   # GET /rooms/1/edit
