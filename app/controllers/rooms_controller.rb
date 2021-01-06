@@ -43,7 +43,7 @@ class RoomsController < ApplicationController
     room.save
     id =Room.last.id
     id = token +id.to_s
-    redirect_to player_show_path(:id => id)
+    redirect_to player_show_path(:room_id => id)
   end
 
   def search
@@ -51,7 +51,7 @@ class RoomsController < ApplicationController
     @room = Room.find_by_id(id)
     puts @room.name
     if @room!=nil and @room.cur_users_num<@room.max_users_num
-      redirect_to player_show_path(:id => id)
+      redirect_to player_show_path(:room_id => id)
     else
 
     end

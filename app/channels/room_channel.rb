@@ -2,6 +2,7 @@ class RoomChannel < ApplicationCable::Channel
   require 'json'
   def subscribed
     stream_from "room#{params[:room_id]}"
+    ActionCable.server.broadcast("room#{params[:room_id]}", {'body':'enter','user':self.current_user})
   end
 
   def unsubscribed
@@ -14,6 +15,7 @@ class RoomChannel < ApplicationCable::Channel
 
   def receive(data)
     p data
+    data['user']=self.current_user
     ActionCable.server.broadcast("room#{params[:room_id]}", data)
   end
 end
