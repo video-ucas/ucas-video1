@@ -33,6 +33,7 @@ class RoomsController < ApplicationController
   def create
     name=params["name"]
     max =params["max_users_num"]
+    video_id = params["video_id"]
     token=SecureRandom.uuid
     room = Room.new
     room.name=name
@@ -40,20 +41,23 @@ class RoomsController < ApplicationController
     room.max_users_num=max
     room.cur_users_num=0
     room.token = token
-    room.video_id=0
+    room.video_id=video_id
     room.save
     id =Room.last.id
     redirect_to player_show_path(:room_id => id,:token => token)
   end
 
   def search
-    id = params[:id]
+    invitation = params[:id]
+    data = invitation.split('/')
+    id = data[0]
+    token = data[1]
     @room = Room.find_by_id(id)
-    puts @room.name
-    if @room!=nil and @room.cur_users_num<@room.max_users_num
-      redirect_to player_show_path(:id => id)
+    if @room!=nil and@room.token==token and @room.cur_users_num<@room.max_users_num
+      redirect_to player_show_path(:room_id => id,:token => token)
     else
-
+      flash[:danger]='Invalid Invitation Code'
+      redirect_to rooms_path
     end
   end
 
