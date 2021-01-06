@@ -17,36 +17,13 @@
   <div class="wrapper hp_1">
 
     <!--topbar-->
-    <header>
-      <div class="top_bar">
-        <div class="container">
-          <div class="top_header_content">
-            <div class="search_form" style="margin-left: 400px">
-              <%= form_tag(rooms_search_path,:method => "get") do %>
-                <div class="input-group">
-                  <%=search_field_tag :id,params[:id],placeholder:"Input Room ID" %>
-                  <div>
-                    <%=button_tag "Enter",:name=>nil %>
-                  </div>
-                </div>
-              <%end %>
-            </div>
-            <ul class="controls-lv">
-              <li>
-                <a href="Upload_Video.html" title="" class="btn-default">退出</a>
-              </li>
-            </ul>
-            <div class="clearfix"></div>
-          </div>
-        </div>
-      </div>
-    </header>
+    <%= render '/layouts/shared/topbar' %>
 
     <!--中间背景-->
     <section class="banner-section">
       <div class="container">
         <div class="banner-text">
-          <h2>Watch share and upload with friends</h2>
+          <h2>Watch and share with friends</h2>
         </div><!--banner-text end-->
       </div>
     </section><!--banner-section end-->
@@ -56,7 +33,6 @@
       <div class="vidz-row">
         <div class="container">
           <div class="vidz_sec">
-            <h3>视频</h3>
             <div class="vidz_list">
               <div class="row">
                 <% @videos.each do |video| %>
