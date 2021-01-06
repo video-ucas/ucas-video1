@@ -13,6 +13,6 @@ class PlayerController < ApplicationController
             flash[:danger]='房间邀请码错误'
             redirect_to rooms_path            
         end
-        @url=Rails.application.config.video_url+'/static/qbl.mp4'
+        @url=Rails.application.config.video_url+@room.video.video_url
     end
 end
