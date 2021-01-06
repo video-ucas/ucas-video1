@@ -5,7 +5,7 @@ class RoomsController < ApplicationController
   # GET /rooms
   # GET /rooms.json
   def index
-    @rooms = Room.where(public:true)
+    @rooms = Room.all
   end
 
   # GET /rooms/1
@@ -36,14 +36,14 @@ class RoomsController < ApplicationController
     token=SecureRandom.uuid
     room = Room.new
     room.name=name
-    room.owner=name
+    room.user_id=0
     room.max_users_num=max
     room.cur_users_num=0
-    room.public=true
+    room.token = token
+    room.video_id=0
     room.save
     id =Room.last.id
-    id = token +id.to_s
-    redirect_to player_show_path(:id => id)
+    redirect_to player_show_path(:room_id => id,:token => token)
   end
 
   def search
