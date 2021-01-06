@@ -17,7 +17,6 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def receive(data)
-    p data
     data['user']=self.current_user
     ActionCable.server.broadcast("room#{params[:room_id]}", data)
   end

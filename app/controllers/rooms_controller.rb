@@ -49,6 +49,9 @@ class RoomsController < ApplicationController
     room.video_id=video_id
     room.save
     id =Room.last.id
+    v=Video.find_by_id(video_id)
+    v.count+=1
+    v.save
     redirect_to player_show_path(:room_id => id,:token => token)
   end
 
@@ -62,7 +65,7 @@ class RoomsController < ApplicationController
       redirect_to player_show_path(:room_id => id,:token => token)
     else
       flash[:danger]='Invalid Invitation Code'
-      redirect_to rooms_path
+      redirect_to videos_path
     end
   end
 

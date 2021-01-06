@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Video.create(name:'火影忍者',video_url:'/static/火影忍者.mp4',picture_url:'火影忍者',count:0)
+Video.create(name:'千本樱： 古筝翻奏 --- 墨韵随步摇',video_url:'/static/qbl.mp4',picture_url:'qbl',count:0)
