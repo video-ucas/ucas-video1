@@ -55,4 +55,5 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.video_url='http://127.0.0.1:5000'
   config.consider_all_requests_local = false
+  config.video_url='https://gkkk.oss-cn-beijing.aliyuncs.com'
 end

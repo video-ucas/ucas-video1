@@ -23,3 +23,4 @@ Video.create(name:'加油，我们在国科大等你！',video_url:'/static/加�
 Video.create(name:'中美纠错能力',video_url:'/static/中美纠错能力.mp4',picture_url:'中美纠错能力',count:0)
 Video.create(name:'风吹麦浪',video_url:'/static/风吹麦浪.mp4',picture_url:'风吹麦浪',count:0)
 
+
