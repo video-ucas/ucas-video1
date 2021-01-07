@@ -1,8 +1,7 @@
 #1.5 wzm
 class VideosController < ApplicationController
   include SessionsHelper
-  skip_before_action :verify_authenticity_token, :only => [:create]
-  before_action :request_logged
+  before_action :request_logged, :only => [:create]
   #返回数据库中所有视频，对应展示视频界面
   def index
     @videos = Video.all
