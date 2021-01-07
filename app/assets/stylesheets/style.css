@@ -350,7 +350,7 @@ header .container {
 	float: right;
 	display: flex;
 	align-items: center;
-	margin-top: -26px;
+	margin-top: -10px;
 	position: relative;
 	top: 13px;
 }

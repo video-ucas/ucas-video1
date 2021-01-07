@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   get '/generate_device_id', :to=>"rooms#more"
   match '/player/:room_id/show',to:"player#show",via:'get',:as=>"open"
   match '/rooms/new',to:"rooms#new",via:'get',:as=>"newRoom"
+  match '/users/new',to:"users#new",via:'get',:as=>"newUser"
+  match '/sessions/new',to:"sessions#new",via:'get',:as=>"newSeesion"
   resources :rooms
 end
