@@ -6,5 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Video.create(name:'火影忍者',video_url:'/static/火影忍者.mp4',picture_url:'火影忍者',count:0)
 Video.create(name:'千本樱： 古筝翻奏 --- 墨韵随步摇',video_url:'/static/qbl.mp4',picture_url:'qbl',count:0)
+Video.create(name:'定日镜——未来的太阳能？',video_url:'/static/定日镜.mp4',picture_url:'定日镜',count:0)
+Video.create(name:'在资本面前，底层人民算什么？',video_url:'/static/资本与法治.mp4',picture_url:'资本与法治',count:0)
+Video.create(name:'procreate',video_url:'/static/procreate.mp4',picture_url:'procreate',count:0)
+Video.create(name:'2020，一部西方价值观在中国的败亡史',video_url:'/static/西方价值观的败亡.mp4',picture_url:'西方价值观的败亡',count:0)
+Video.create(name:'对越自卫反击战火力覆盖片段',video_url:'/static/对越自卫反击战火力覆盖片段.mp4',picture_url:'对越自卫反击战火力覆盖片段',count:0)
+Video.create(name:'加油，我们在国科大等你！',video_url:'/static/加油，我们在国科大等你！.mp4',picture_url:'加油，我们在国科大等你！',count:0)
+Video.create(name:'中美纠错能力',video_url:'/static/中美纠错能力.mp4',picture_url:'中美纠错能力',count:0)
+Video.create(name:'风吹麦浪',video_url:'/static/风吹麦浪.mp4',picture_url:'风吹麦浪',count:0)

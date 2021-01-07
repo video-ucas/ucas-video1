@@ -1,0 +1,46 @@
+<% content_for :head_block do %>
+  <%= stylesheet_link_tag    'animate.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'flatpickr.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'fontello.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'fontello-codes.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'thumbs-embedded.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'style.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'responsive.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'color.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+<title>index</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<% content_for :body_block do %>
+
+  <div class="wrapper hp_1">
+
+    <!--topbar-->
+    <%= render '/layouts/shared/topbar' %>
+
+    <!--中间背景-->
+    <section class="banner-section">
+      <div class="container">
+        <div class="banner-text">
+          <h2>Watch and share with friends</h2>
+        </div><!--banner-text end-->
+      </div>
+    </section><!--banner-section end-->
+
+    <!--展示视频-->
+    <section class="vds-main">
+      <div class="vidz-row">
+        <div class="container">
+          <div class="vidz_sec">
+            <p>1.注册与登陆</p>
+            <p>2.在搜索框中输入邀请码即可进入房间观看视频</p>
+            <p>3.点击视频创建房间，邀请您的另一半一起欣赏你们的快乐吧！</p>
+          </div><!--vidz_videos end-->
+        </div>
+      </div><!--vidz-row end-->
+    </section>
+  </div><!--wrapper end-->
+<% end %>
+
+

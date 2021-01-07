@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'qa/show'
+
   resources :users
   resources :sessions
   get '/login', to: 'sessions#new'
@@ -6,6 +8,9 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy'
 
   get 'videos',to:'videos#index'
+  get 'videos/upload',to:'videos#upload'
+  post 'videos/upload',to:'videos#create'
+
   get 'player/show',to: 'player#show'
   get 'rooms/new',to:'rooms#new'
   get 'rooms/search',to:'rooms#search'

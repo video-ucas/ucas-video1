@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  include SessionsHelper
   require 'securerandom'
   before_action :request_logged
   before_action :set_room, only: [:show, :edit, :update, :destroy]
@@ -8,7 +9,7 @@ class RoomsController < ApplicationController
   def new
     video_id = params["video_id"]
     if video_id==nil
-      redirect_to rooms_path
+      redirect_to videos_path
     else
       @room = Room.new
     end
@@ -22,7 +23,7 @@ class RoomsController < ApplicationController
     token=SecureRandom.uuid
     room = Room.new
     room.name=name
-    room.user_id=0
+    room.user_id=session[:user_id]
     room.max_users_num=max
     room.cur_users_num=0
     room.token = token
@@ -43,21 +44,13 @@ class RoomsController < ApplicationController
     @room = Room.find_by_id(id)
     if @room!=nil and@room.token==token and @room.cur_users_num<@room.max_users_num
       redirect_to player_show_path(:room_id => id,:token => token)
+    elsif @room.cur_users_num>=@room.max_users_num
+      flash[:danger]='观看人数已到允许上限'
+      redirect_to videos_path
     else
-      flash[:danger]='Invalid Invitation Code'
+      flash[:danger]='无效的邀请码'
       redirect_to videos_path
     end
   end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_room
-      @room = Room.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def room_params
-      params.require(:room).permit(:name, :owner, :max_users_num, :cur_users_num, :public)
-    end
 
 end

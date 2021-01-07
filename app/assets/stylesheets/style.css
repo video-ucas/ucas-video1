@@ -153,7 +153,7 @@ nav ul li a,
 .signup_form,
 .overlay:before,
 button,
-.upload-videooz form label, 
+.upload-videooz form label,
 .youtube-dwn form button,
 .vid_thums li a,
 .vid_thums li a svg rect,
@@ -3859,7 +3859,7 @@ header.hp_1 .side_links li.user_contrl {
 	background-image: url(banner-img.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
-	padding: 200px 0;
+	padding: 100px 0;
 }
 .banner-section:before {
 	content: '';

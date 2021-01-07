@@ -16,6 +16,9 @@
         <div class="btm_bar_content" style="float: left;font-size: 20px">
           <%=link_to "/videos/" do%>视频<%end %>
         </div>
+        <div class="btm_bar_content" style="float: left;margin-left:10px;font-size: 20px">
+          <%=link_to "/qa/show" do%>Q&A<%end %>
+        </div>
         <div class="search_form" style="margin-left: 350px">
           <%= form_tag(rooms_search_path,:method => "get") do %>
             <div class="input-group">
@@ -28,88 +31,9 @@
         </div>
         <div class="clearfix">
           <ul class="controls-lv">
-            <% if logged_in? %>
-              <li class="user-log" style="margin-top: -10px">
-                <div class="user-ac-img">
-                    <%= image_tag("user-img.png") %>
-                </div>
-                <div class="account-menu">
-                  <h4>AZYRUSMAX <span class="usr-status">PRO</span></h4>
-                  <div class="sd_menu">
-                    <ul class="mm_menu">
-                      <li>
-												<span>
-													<i class="icon-user"></i>
-												</span>
-                        <a href="#" title="">My Channel</a>
-                      </li>
-                      <li>
-												<span>
-													<i class="icon-paid_sub"></i>
-												</span>
-                        <a href="#" title="">Paid subscriptions</a>
-                      </li>
-                      <li>
-												<span>
-													<i class="icon-settings"></i>
-												</span>
-                        <a href="#" title="">Settings</a>
-                      </li>
-                      <li>
-												<span>
-													<i class="icon-logout"></i>
-												</span>
-                        <a href="#" title="">Sign out</a>
-                      </li>
-                    </ul>
-                  </div><!--sd_menu end-->
-                  <div class="sd_menu scnd">
-                    <ul class="mm_menu">
-                      <li>
-												<span>
-													<i class="icon-light"></i>
-												</span>
-                        <a href="#" title="">Dark Theme</a>
-                        <label class="switch">
-                          <input type="checkbox">
-                          <b class="slider round"></b>
-                        </label>
-                      </li>
-                      <li>
-												<span>
-													<i class="icon-language"></i>
-												</span>
-                        <a href="#" title="">Language</a>
-                      </li>
-                      <li>
-												<span>
-													<i class="icon-feedback"></i>
-												</span>
-                        <a href="#" title="">Send feedback</a>
-                      </li>
-                      <li>
-												<span>
-													<i class="icon-location"></i>
-												</span>
-                        <a href="#" title="">India</a>
-                        <i class="icon-arrow_below"></i>
-                      </li>
-                    </ul>
-                  </div><!--sd_menu end-->
-                  <div class="restricted-mode">
-                    <h4>Restricted Mode</h4>
-                    <label class="switch">
-                      <input type="checkbox" checked>
-                      <span class="slider round"></span>
-                    </label>
-                    <div class="clearfix"></div>
-                  </div><!--restricted-more end-->
-                </div>
-              </li>
-            <%end %>
             <% if !logged_in? %>
               <li class="user-log">
-                  <span><%=link_to newSeesion_url() do%>登陆<%end %></span>
+                  <span><%=link_to newSeesion_url() do%>登录<%end %></span>
               </li>
             <% end %>
             <% if !logged_in? %>
@@ -118,7 +42,7 @@
               </li>
             <%end %>
             <% if logged_in? %>
-              <li class="user-log" style="margin-top: -10px">
+              <li class="user-log" >
                   <span><%=link_to logout_url() do%>登出<%end %></span>
               </li>
               <%end %>
