@@ -2,6 +2,7 @@
 class VideosController < ApplicationController
   include SessionsHelper
   before_action :request_logged, :only => [:create]
+  skip_before_action :verify_authenticity_token, :only => [:create]
   #返回数据库中所有视频，对应展示视频界面
   def index
     @videos = Video.all
