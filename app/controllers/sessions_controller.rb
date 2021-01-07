@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   include SessionsHelper
   def new
-    redirect_to videos_path if logged_in?
+      redirect_to videos_path if logged_in?
   end
 
   def create
@@ -22,6 +22,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    puts "登出"
     log_out if logged_in?
     redirect_to login_path
   end
