@@ -54,4 +54,5 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.video_url='http://127.0.0.1:5000'
+  config.consider_all_requests_local = false
 end

@@ -1,4 +1,5 @@
 class PlayerController < ApplicationController
+    before_action :request_logged
     def show
         @room_id=params[:room_id]
         @room=Room.find_by(id: @room_id)

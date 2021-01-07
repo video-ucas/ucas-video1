@@ -1,33 +1,49 @@
 <% content_for :head_block do %>
 
-<% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
-
 <% provide(:title, "登录") %>
-<h1>登录</h1>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.label :remember_me, class: "checkbox inline" do %>
-        <%= f.check_box :remember_me %>
-        <span>下次自动登录</span>
-      <% end %>
-
-      <%= f.submit "登录", class: "btn btn-primary" %>
-    <% end %>
-
-    <p>新用户？ <%= link_to "立即注册！", new_user_path %></p>
-  </div>
-</div>
 
 <% end %>
 
+<% content_for :body_block do %>
+  <%= render '/layouts/shared/topbar' %>
+  <div class="wrapper hp_1">
+  
+  <section class="vds-main">
+    <div class="vidz-row">
+      <div class="container">
+        <div class="vidz_sec">
+          <div class="vidz_list">
+            <%= form_for(:session, url: login_path,html:{class:"bootstrap-frm"}) do |f| %>
+              <%= f.label :name %>
+              <%= f.text_field :name, class: 'form-control' %>
+
+              <%= f.label :password %>
+              <%= f.password_field :password, class: 'form-control' %>
+              
+              <div class="form-group">
+                 <div >
+                    <div class="checkbox">
+                       <label>
+                         <%= f.check_box :remember_me %>   Remember me
+                       </label>
+                    </div>
+                  </div>
+              </div>
+              
+            <%= f.submit "登录", class: "btn btn-default" %>
+            
+            <% end %>
+
+
+          </div>
+        </div><!--vidz_list end-->
+      </div><!--vidz_videos end-->
+    </div>
+</div><!--vidz-row end-->
+
+</div><!--wrapper end-->
+
+<% end %>

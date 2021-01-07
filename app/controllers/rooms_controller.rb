@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   require 'securerandom'
+  before_action :request_logged
   before_action :set_room, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token, :only => [:create]
   # GET /rooms
@@ -8,8 +9,6 @@ class RoomsController < ApplicationController
     @rooms = Room.all
   end
 
-  # GET /rooms/1
-  # GET /rooms/1.json
   def show
   end
 
