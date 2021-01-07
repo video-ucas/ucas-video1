@@ -1,16 +1,21 @@
 <% content_for :head_block do %>
-
+  <%= stylesheet_link_tag    'animate.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'flatpickr.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'fontello.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'fontello-codes.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'thumbs-embedded.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'style.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'responsive.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'newRoom.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'rooms.js'%>
 <% provide(:title, "登录") %>
-
-
-
 
 <% end %>
 
 <% content_for :body_block do %>
-  <%= render '/layouts/shared/topbar' %>
-  <div class="wrapper hp_1">
   
+  <div class="wrapper hp_1">
+  <%= render '/layouts/shared/topbar' %>
   <section class="vds-main">
     <div class="vidz-row">
       <div class="container">

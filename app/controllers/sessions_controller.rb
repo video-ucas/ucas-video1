@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
         forget(user)
       end
       log_in user
-      flash[:success]='login success'
       redirect_to videos_path
     else
       flash.now[:danger] = "登录失败，用户名/密码错误！"
