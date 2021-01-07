@@ -88,4 +88,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.video_url='https://gkkk.oss-cn-beijing.aliyuncs.com'
+  config.consider_all_requests_local = false
+
 end
