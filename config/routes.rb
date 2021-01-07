@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'qa/show'
+
   resources :users
   resources :sessions
   get '/login', to: 'sessions#new'
