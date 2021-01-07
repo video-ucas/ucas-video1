@@ -44,8 +44,11 @@ class RoomsController < ApplicationController
     @room = Room.find_by_id(id)
     if @room!=nil and@room.token==token and @room.cur_users_num<@room.max_users_num
       redirect_to player_show_path(:room_id => id,:token => token)
+    elsif @room.cur_users_num>=@room.max_users_num
+      flash[:danger]='观看人数已到允许上限'
+      redirect_to videos_path
     else
-      flash[:danger]='Invalid Invitation Code'
+      flash[:danger]='无效的邀请码'
       redirect_to videos_path
     end
   end
