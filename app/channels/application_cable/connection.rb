@@ -1,13 +1,21 @@
 module ApplicationCable
   class Connection < ActionCable::Connection::Base
-    @@i=1
     identified_by :current_user
 
     def connect
-      
-      self.current_user = @@i 
-      @@i+=1
+      if user = User.find_by(id: session[:user_id])
+        self.current_user = user
+      else
+        reject_unauthorized_connection
+      end
     end
+
+    private
+
+      def session
+        key = Rails.application.config.session_options.fetch(:key)
+        cookies.encrypted[key]&.symbolize_keys || {}
+      end
 
   
   end

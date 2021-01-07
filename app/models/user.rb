@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   validates :password, presence: true
   validates :password_confirmation, presence: true
-  validates :name, presence: true, length: { minimum: 2, maximum: 50 },uniqueness: { case_sensitive: false }
+  validates :name, presence: true, length: { minimum: 2, maximum: 10 },uniqueness: { case_sensitive: false }
 
   def remember
     self.remember_token = User.new_token

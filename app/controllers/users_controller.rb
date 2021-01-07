@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to new_session_path
     else
-      flash[:danger]='注册失败，用户名重复或密码错误'
+      flash.now[:danger]='注册失败，用户名或密码错误'
       render 'new'
     end
   end
