@@ -20,6 +20,7 @@ class RoomsController < ApplicationController
     name=params["name"]
     max =params["max_users_num"]
     video_id = params["video_id"]
+    Room.where(user_id:session[:user_id]).delete_all
     token=SecureRandom.uuid
     room = Room.new
     room.name=name
