@@ -11,16 +11,15 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     #user = User.new
-
     if @user.save
-      redirect_to videos_path
+      redirect_to new_session_path
     else
+      flash[:danger]='注册失败，用户名重复或密码错误'
       render 'new'
     end
   end
 
   private
-
   def user_params
     params.require(:user).permit(:name, :password, :password_confirmation)
   end

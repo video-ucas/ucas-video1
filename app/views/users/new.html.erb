@@ -8,12 +8,13 @@
   <%= stylesheet_link_tag    'responsive.css', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag    'newRoom.css', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'rooms.js'%>
-<% end %>
-<title>index</title>
+
+<%end %>
+<% content_for :body_block do %>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<% content_for :body_block do %>
+
 
   <div class="wrapper hp_1">
     <%= render '/layouts/shared/topbar' %>

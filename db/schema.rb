@@ -10,21 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20210106104639) do
-=======
-ActiveRecord::Schema.define(version: 20210106074208) do
->>>>>>> a21561b7c7f59d14b3848dd3310b9ce2f9cfaef6
+ActiveRecord::Schema.define(version: 20210107130607) do
 
   create_table "rooms", force: :cascade do |t|
     t.string "name"
-    t.integer "user_id"
     t.integer "max_users_num"
     t.integer "cur_users_num"
-    t.integer "video_id"
-    t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "video_id"
+    t.string "token"
+    t.index ["user_id"], name: "index_rooms_on_user_id"
+    t.index ["video_id"], name: "index_rooms_on_video_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "password_digest"
+    t.boolean "admin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "remember_digest"
   end
 
   create_table "videos", force: :cascade do |t|
@@ -32,14 +39,6 @@ ActiveRecord::Schema.define(version: 20210106074208) do
     t.string "video_url"
     t.string "picture_url"
     t.integer "count"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "password_digest"
-    t.boolean "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

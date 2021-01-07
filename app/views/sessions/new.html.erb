@@ -1,3 +1,5 @@
+<% content_for :head_block do %>
+
 <% flash.each do |key, value| %>
   <div class="alert alert-<%= key %>"><%= value %></div>
 <% end %>
@@ -9,8 +11,8 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:session, url: login_path) do |f| %>
 
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
 
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
@@ -27,4 +29,5 @@
   </div>
 </div>
 
-<p>Find me in app/views/sessions/new.html.erb</p>
+<% end %>
+
