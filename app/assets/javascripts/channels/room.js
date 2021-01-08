@@ -15,7 +15,6 @@ var player=videojs('my-video',
     preload:"auto",
 	width:"640",
 	height:"264",
-  autoplay: false,
   muted:true ,
   autoplay:false,
     //fluid: true
