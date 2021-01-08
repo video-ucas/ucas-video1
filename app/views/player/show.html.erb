@@ -28,7 +28,7 @@
 							<div class="vid-info">
 								<h3><%= @room.video.name %></h3>
 								<div class="info-pr">
-									<span><%= @room.video.count %> views  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;邀请码： <%= @room.id.to_s+'/'+@room.token %></span>
+                  <span><%= @room.video.count %> views  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<b>邀请码：</b> <%= @room.id.to_s+'/'+@room.token %></span>
 									
 									<div class="clearfix"></div>
 								</div><!--info-pr end-->
@@ -53,6 +53,8 @@
 				<input id="file"type="file"style="display:none" onchange="onFileChange()">
 				
 			</div>
+
+
 			<script>
 				this.onFileChange = function () {
   				var fileurl = URL.createObjectURL($('#file').get(0).files[0]);
