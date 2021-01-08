@@ -43,6 +43,9 @@
             <%end %>
             <% if logged_in? %>
               <li class="user-log" >
+                <span><strong><%=User.find_by_id(session[:user_id]).name%></strong></span>
+              </li>
+              <li class="user-log" >
                   <span><%=link_to logout_url() do%>登出<%end %></span>
               </li>
               <%end %>

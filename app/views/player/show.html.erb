@@ -6,6 +6,7 @@
 
 <% content_for :body_block do %>
 <%= render '/layouts/shared/topbar' %>
+
 <input type="hidden" id="room_id" value="<%= @room_id %>"/>
 <div class="wrapper">
 	<section class="mn-sec">
@@ -15,17 +16,20 @@
 					<div class="mn-vid-sc single_video">
 						<div class="vid-1">
 							<div class="vid-pr">
-								<video
+							<video
 								    id="my-video"
 									class="video-js vjs-big-play-centered"									
 								  >
-                                  <source src=<%= @url %> type="video/mp4" />		
+								  <% if @room.video.name!='本地视频' %>
+								  <source src="<%= @url %>" type="video/mp4" />
+								  <%end%>		
 								</video>
 							</div><!--vid-pr end-->
 							<div class="vid-info">
-								<h3>千本樱： 古筝翻奏 ---  墨韵随步摇</h3>
+								<h3><%= @room.video.name %></h3>
 								<div class="info-pr">
 									<span><%= @room.video.count %> views  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;邀请码： <%= @room.id.to_s+'/'+@room.token %></span>
+									
 									<div class="clearfix"></div>
 								</div><!--info-pr end-->
 							</div><!--vid-info end-->
@@ -41,8 +45,33 @@
 					</ul>
 				</div>
 			</div>
+			<% if @room.video.name=='本地视频' %>
+			<div class="form-group">
+             <label class="col-sm-2 control-label"> </label>
+    			<div class="col-sm-2 ">
+        		<label for="file"class=" btn btn-default">选择本地视频</label><label id='choose_video_name'>尚未选择视频</label>
+				<input id="file"type="file"style="display:none" onchange="onFileChange()">
+				
+			</div>
+			<script>
+				this.onFileChange = function () {
+  				var fileurl = URL.createObjectURL($('#file').get(0).files[0]);
+  				var fileType = $('#file').get(0).files[0].type;
+
+  				let video = videojs("my-video");
+				video.src({ type: fileType, src: fileurl });
+				
+				video.pause(); 
+				$('#choose_video_name').get(0).innerText=$('#file').get(0).files[0].name; 
+
+			};
+			</script>
+			<% end %>
+
 		</div>
+		
 	</section><!--mn-sec end-->
+	
 	
 </div><!--wrapper end-->
 <% end %>

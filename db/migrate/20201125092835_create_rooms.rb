@@ -9,5 +9,6 @@ class CreateRooms < ActiveRecord::Migration[5.1]
       t.string :token
       t.timestamps
     end
+    add_index :rooms, :user_id
   end
 end

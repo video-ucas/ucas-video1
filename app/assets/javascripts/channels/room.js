@@ -22,7 +22,7 @@ var player=videojs('my-video',
   },
   function () {
     // // Extend default //
-    this.play();
+    
     this.pause();
     console.log('视频可以播放了',this);
   }

@@ -1,5 +1,7 @@
 #1.5 wzm
 class VideosController < ApplicationController
+  include SessionsHelper
+  before_action :request_logged, :only => [:create]
   skip_before_action :verify_authenticity_token, :only => [:create]
   #返回数据库中所有视频，对应展示视频界面
   def index
@@ -24,7 +26,11 @@ class VideosController < ApplicationController
 
   #对应上传视频界面，展示表单
   def upload
-
+    user=User.find_by(id:session[:user_id])
+    if user.admin.nil?
+      flash[:danger]="无上传视频权限！"
+      redirect_to videos_path
+    end
   end
 
   private
