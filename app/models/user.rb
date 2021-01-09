@@ -1,9 +1,9 @@
 class User < ApplicationRecord
 
-  has_secure_password
+  has_secure_password          #安全
   attr_accessor :remember_token
 
-  validates :password, presence: true
+  validates :password, presence: true     #限制条件
   validates :password_confirmation, presence: true
   validates :name, presence: true, length: { minimum: 2, maximum: 10 },uniqueness: { case_sensitive: false }
 
