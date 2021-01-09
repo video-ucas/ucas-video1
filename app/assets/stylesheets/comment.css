@@ -1,0 +1,37 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.comment{
+    width: 70%;
+    height: 350px;
+    position: relative;
+    margin: 20px 0 0 20px;
+}
+.comment-wrap{
+    height: 490px;
+    width: 280px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling:touch;
+}
+.comment-wrap li{
+    text-align: left;
+    line-height: 30px;
+    padding-left: 10px;
+    background: green;
+    margin-top: 5px;
+    border-radius: 15px;
+    color: #fff;
+}
+.rest-nums{
+    position: absolute;
+    height: 24px;
+    line-height: 24px;
+    color: #f00;
+    border-radius: 15px;
+    padding: 0 15px;
+    bottom: 10px;
+    background: #fff;
+    font-size: 14px;
+    left: 10px;
+}
