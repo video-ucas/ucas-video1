@@ -20,8 +20,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def destroy
-    puts "登出"
+  def destroy               #登出操作的修改
     log_out if logged_in?
     redirect_to login_path
   end
