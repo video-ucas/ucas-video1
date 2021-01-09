@@ -10,6 +10,7 @@ module ApplicationCable
       end
     end
 
+
     private
 
       def session

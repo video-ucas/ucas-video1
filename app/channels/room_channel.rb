@@ -8,6 +8,7 @@ class RoomChannel < ApplicationCable::Channel
     room.save
   end
 
+
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
     p "leave room#{params[:room_id]}"
@@ -15,6 +16,7 @@ class RoomChannel < ApplicationCable::Channel
     room.cur_users_num-=1
     room.save
   end
+
 
   def receive(data)
     data['user']=self.current_user.name

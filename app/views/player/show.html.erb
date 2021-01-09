@@ -48,6 +48,7 @@
 					</div>
 				</div>
 			</div>
+      <!--复制邀请码的代码-->
 			<script>
 				$("#content").click(function() {
 					const range = document.createRange();
@@ -60,6 +61,7 @@
 					alert("复制成功！");
 				});
 			</script>
+      <!--如果是本地视频-->
 			<% if @room.video.name=='本地视频' %>
 			<div class="form-group">
              <label class="col-sm-2 control-label"> </label>
