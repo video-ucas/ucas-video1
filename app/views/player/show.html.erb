@@ -37,9 +37,9 @@
 						</div><!--vid-1 end-->
 					</div><!--mn-vid-sc end--->
 				</div><!---col-lg-9 end-->
-				<div class='col-lg-3' style="height: 580px;border: 1px solid;background: linear-gradient(45deg, black, transparent);">
+				<div class='col-lg-3' style="height: 580px;background: linear-gradient(45deg, white, transparent);">
 					<br>
-					<h1 style='font-size:30px;text-align: center'>Notice</h1>
+					<h1 style='font-size:30px;text-align: center; color: black'>Notice</h1>
 					<div class="comment">
 						<div class="comment-wrap" ref="wrapper">
 							<ul id="messages" class='message-ul'>
@@ -48,6 +48,7 @@
 					</div>
 				</div>
 			</div>
+      <!--复制邀请码的代码-->
 			<script>
 				$("#content").click(function() {
 					const range = document.createRange();
@@ -60,6 +61,7 @@
 					alert("复制成功！");
 				});
 			</script>
+      <!--如果是本地视频-->
 			<% if @room.video.name=='本地视频' %>
 			<div class="form-group">
              <label class="col-sm-2 control-label"> </label>

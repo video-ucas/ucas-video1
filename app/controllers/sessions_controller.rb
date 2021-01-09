@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
       redirect_to videos_path if logged_in?
   end
 
+
   def create
     user = User.find_by_name(params[:session][:name])
     if user && user.authenticate(params[:session][:password])
@@ -20,7 +21,9 @@ class SessionsController < ApplicationController
     end
   end
 
-  def destroy               #登出操作的修改
+
+  def destroy
+    puts "登出"
     log_out if logged_in?
     redirect_to login_path
   end

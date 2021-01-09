@@ -8,6 +8,7 @@ class VideosController < ApplicationController
     @videos = Video.all
   end
 
+
   #接收管理员上传的数据，创建视频存入videos表，对应上传视频界面
   def create
     puts params
@@ -24,6 +25,7 @@ class VideosController < ApplicationController
     end
   end
 
+
   #对应上传视频界面，展示表单
   def upload
     user=User.find_by(id:session[:user_id])
@@ -32,6 +34,7 @@ class VideosController < ApplicationController
       redirect_to videos_path
     end
   end
+
 
   private
   # 从数据库获取video列表
