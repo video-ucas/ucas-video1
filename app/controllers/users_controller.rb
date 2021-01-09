@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   private
-  def user_params
+  def user_params       #create参数
     params.require(:user).permit(:name, :password, :password_confirmation)
   end
 
