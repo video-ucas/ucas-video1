@@ -17,11 +17,11 @@ class VideosController < ApplicationController
     video.picture_url=params["picture_url"]
     video.video_url=params["video_url"]
     video.count=0
-    if !video.save  #判断是否成功存入数据库
+    if !video.save
       flash.now[:danger]="创建失败！"
-      render videos_upload_path  #刷新上传视频界面
+      render videos_upload_path
     else
-      redirect_to videos_path  #跳转至主界面
+      redirect_to videos_path
     end
   end
 
@@ -29,9 +29,9 @@ class VideosController < ApplicationController
   #对应上传视频界面，展示表单
   def upload
     user=User.find_by(id:session[:user_id])
-    if user.admin.nil?  #判断是否为管理员
+    if user.admin.nil?
       flash[:danger]="无上传视频权限！"
-      redirect_to videos_path  #跳转至主界面
+      redirect_to videos_path
     end
   end
 
