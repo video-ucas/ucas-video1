@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'moods/index'
+
   get 'qa/show'
 
   resources :users
@@ -20,4 +22,5 @@ Rails.application.routes.draw do
   match '/users/new',to:"users#new",via:'get',:as=>"newUser"
   match '/sessions/new',to:"sessions#new",via:'get',:as=>"newSeesion"
   resources :rooms
+  resources :moods
 end

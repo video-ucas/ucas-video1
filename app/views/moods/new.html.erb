@@ -1,0 +1,72 @@
+<% content_for :head_block do %>
+  <%= stylesheet_link_tag    'animate.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'flatpickr.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'fontello.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'fontello-codes.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'thumbs-embedded.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'style.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'responsive.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'color.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'chat.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+<% content_for :body_block do %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+
+  <div class="wrapper hp_1">
+
+    <!--topbar-->
+    <%= render '/layouts/shared/topbar' %>
+
+    <!--中间背景-->
+    <section class="banner-section">
+      <div class="container">
+        <div class="banner-text">
+          <h2>Watch and share with friends</h2>
+        </div><!--banner-text end-->
+      </div>
+    </section><!--banner-section end-->
+
+  <section class="vds-main">
+    <div class="vidz-row">
+      <div class="container">
+        <div class="vidz_sec">
+          <div class="vidz_list">
+            <form action="/moods" method="post" class="bootstrap-frm">
+              <h1 style="text-align: center">发表评论</h1>
+              <label>
+                <span>评论影片：</span>
+                <select>
+
+
+                </select>
+              </label>
+
+              <label>
+                <span>评论内容：</span>
+                <input id="name" type="text" name="name" />
+              </label>
+
+              <label>
+                <span>&nbsp;</span>
+                <input type="submit" class="button" value="发表" />
+              </label>
+
+
+
+
+
+            </form>
+
+          </div><!--vidz_list end-->
+        </div><!--vidz_videos end-->
+      </div>
+    </div><!--vidz-row end-->
+  </section>
+
+  </div>
+
+
+
+<% end %>
