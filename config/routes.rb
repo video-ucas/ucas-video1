@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'qa/show'
 
   resources :users
-  resources :sessions
+  #resources :sessions
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
